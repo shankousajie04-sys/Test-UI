@@ -1,0 +1,62 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/jensonhirst/Orion/main/source')))()
+
+-- Changed window name to "Lightning Hub (test version)"
+local Window = OrionLib:MakeWindow({
+    Name = "Lightning Hub (test version)", 
+    HidePremium = false, 
+    SaveConfig = true, 
+    ConfigFolder = "OrionTest"
+})
+
+--- Startup Notification
+OrionLib:MakeNotification({
+    Name = "Lightning Hub",
+    Content = "Script successfully loaded!",
+    Image = "rbxassetid://4483345998",
+    Time = 5
+})
+
+--- Tab 1
+local Tab1 = Window:MakeTab({
+    Name = "Main",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
+})
+
+Tab1:AddButton({
+    Name = "Execute Action",
+    Callback = function()
+        print("Action executed from Main tab")
+    end    
+})
+
+Tab1:AddButton({
+    Name = "Update Settings",
+    Callback = function()
+        print("Settings updated")
+    end    
+})
+
+--- Tab 2
+local Tab2 = Window:MakeTab({
+    Name = "Misc",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
+})
+
+Tab2:AddButton({
+    Name = "Refresh UI",
+    Callback = function()
+        print("UI Refreshed")
+    end    
+})
+
+Tab2:AddButton({
+    Name = "Destroy Interface",
+    Callback = function()
+        OrionLib:Destroy()
+    end    
+})
+
+-- Required to initialize the library
+OrionLib:Init()
